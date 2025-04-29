@@ -1,6 +1,7 @@
 
 
-// 1. Employee Constructor, Increase Developer Salaries
+// 1. Create a function constructor called Employee that accepts a name, position, and salary. Create an array of 5 employees.
+//  Write a program that increases the salary by 10% for employees who have the position "developer" and print the updated employee list. (5 pts)
 function Employee(name, position, salary) {
     this.name = name;
     this.position = position;
@@ -25,7 +26,9 @@ console.log("Updated Employees List:");
 console.log(employees);
 
 
-// 2. Filter and Sort Products by inStock and Price
+// 2.  Given an array of product objects (each with name, price, and inStock properties), write a function that returns a new array containing only the 
+// products that are inStock: true, and sort the available products by price in ascending order. (5 pts)
+
 function SortedProducts(products) {
     return products
         .filter(product => product.inStock)
@@ -42,7 +45,9 @@ const products = [
 console.log("Available Products Sorted by Price are:");
 console.log(SortedProducts(products));
 
-// 3. Grades Object - Calculate Averages
+// 3. Create an object called grades where the keys are student names and the values are arrays of their scores. Write a function that calculates and prints
+//  each student's average score, and if the average is above 70, print "Pass"; otherwise, print "Fail" next to their name. (5 pts)
+
 const grades = {
     "Rigbe": [88, 70, 92, 78],
     "Mercylin": [66, 65, 78, 68],
@@ -55,7 +60,7 @@ function averages(grades) {
         const scores = grades[student];
         const average = scores.reduce((a, b) => a + b, 0) / scores.length;
         const result = average > 70 ? "Pass" : "Fail";
-        console.log(`${student}: Average = ${average.toFixed(2)} - ${result}`);
+        console.log(`${student}: Average = ${average} - ${result}`);
     }
 }
 
@@ -63,8 +68,9 @@ console.log("The students grade is:");
 averages(grades);
 
 
-
-// 4. User Constructor - Deactivate Inactive Users
+4.// Write a function constructor called User that takes username, email, and isActive (boolean). Create an array of users. 
+// Write a program that loops through the array and deactivates users who have not logged in recently (simulate this with a 
+// random isActive: false assignment) and print out the usernames of active users. (5 pts)
 function User(username, email, isActive) {
     this.username = username;
     this.email = email;
@@ -80,7 +86,7 @@ const users = [
 ];
 
 users.forEach(user => {
-    user.isActive = Math.random() > 0.5; // Random active/inactive
+    user.isActive = Math.random() > 0.5;
 });
 
 const activeUsers = users.filter(user => user.isActive);
@@ -90,7 +96,9 @@ activeUsers.forEach(user => console.log(user.username));
 
 
 
-// 5. Filter Destinations by Budget and Distance
+// 5. You have an array of destination objects, each with name, distance (in km), and budgetRequired (in dollars). Write a function that accepts a maximum
+//  distance and a budget and returns all destinations the user can afford and reach within that distance. If none are found, return "No destinations available
+//  under your budget and distance". (5 pts)
 const destinations = [
     { name: "Paris", distance: 5000, budgetRequired: 1500 },
     { name: "London", distance: 50, budgetRequired: 300 },
@@ -98,7 +106,7 @@ const destinations = [
     { name: "Nairobi", distance: 100, budgetRequired: 500 }
 ];
 
-function findAffordableDestinations(maxDistance, maxBudget) {
+function affordableDestinations(maxDistance, maxBudget) {
     const available = destinations.filter(destination =>
         destination.distance <= maxDistance && destination.budgetRequired <= maxBudget
     );
@@ -109,4 +117,4 @@ function findAffordableDestinations(maxDistance, maxBudget) {
 }
 
 console.log("Affordable Destinations:");
-console.log(findAffordableDestinations(300, 400));
+console.log(affordableDestinations(300, 400));
